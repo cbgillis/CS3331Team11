@@ -7,7 +7,7 @@ public class Seats extends JButton
   private double price;
   private boolean available;
   
-  public Seats(double p)
+  public Seats(double p)//the only constructor for now
   {
     price = p;
     setEnabled(true);
@@ -32,7 +32,8 @@ public class Seats extends JButton
   {
     this.available = available;
   }
-//  
+//  i commented this out cuz i wasn't sure whether to have the action listener here or in the main
+//  i think it should be in the main...
 //  public void actionPerformed(ActionEvent e)
 //  {
 //    e.getSource();
