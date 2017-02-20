@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -6,10 +7,12 @@ public class Seats extends JButton
 {
   private double price;
   private boolean available;
+  private String seatName = "";
   
-  public Seats(double p)//the only constructor for now
+  public Seats(double p, String n)//the only constructor for now
   {
     price = p;
+    seatName = n;
     setEnabled(true);
   }
   
@@ -21,6 +24,11 @@ public class Seats extends JButton
   public void setPrice(double price)
   {
     this.price = price;
+  }
+  
+  public String getSeatName()
+  {
+    return seatName;
   }
   
   public boolean getAvailable()
