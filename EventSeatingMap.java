@@ -63,7 +63,47 @@ public class EventSeatingMap{
 	}
 	/* Creates movie theater layout*/
 	private void createMovieTheater(){
+		int seatCounter = 0;							//Counter for the seats.
+		Seats[] seats = new Seats[50];						//The array to keep the seats.
+		JPanel panel = new JPanel();						//The panel for the seats.
+		JPanel screen = new JPanel();						//The panel for the screen.
+		JLabel sc = new JLabel("SCREEN");					//The label for the screen.
+		JFrame frame = new JFrame("Movie Theater");				//The main frame for the layout.
+		frame.setSize(900, 900);
+		panel.setLayout(new GridLayout(13, 5));
 		
+		//For loop to add the seats to the panel and the space between the seats.
+		for(int i = 0; i < 60; i++){
+			if(i < 15){				//The cheapest seats available 0-14.
+				seats[seatCounter] = new Seats(5.00, "a" + i);
+				panel.add(seats[seatCounter++]);
+			}
+			if(i >= 15 && i < 20){			//Space between cheapest seats and the more expensive seats.
+				panel.add(new JLabel(""));
+			}
+			if(i >= 20 && i < 45){			//The more expensive seats 15-40.
+				seats[seatCounter] = new Seats(8.00, "a" + i);
+				panel.add(seats[seatCounter++]);
+			}
+			if(i >= 45 && i < 50){			//Space between more expensive seats and the most expensive seats.
+				panel.add(new JLabel(""));
+			}
+			if(i >= 50 && i < 60){			//The most expensive seats 40-49.
+				seats[seatCounter] = new Seats(10.00, "a" + i);
+				panel.add(seats[seatCounter++]);
+			}
+		}
+		
+		sc.setForeground(Color.red);    				//Set the color of the screen string.
+		sc.setFont(new Font("Verdana", 1, 100));
+		screen.setBorder(new LineBorder(Color.black));			//Border line around the panel for the screen.
+		screen.add(sc);
+		frame.add(panel);
+		frame.add(screen, BorderLayout.SOUTH);				//Add the screen to the bottom of the frame.
+		frame.add(new JPanel(), BorderLayout.WEST);
+		frame.add(new JPanel(), BorderLayout.EAST);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	/* Creates stage theatre layout*/
 	private void createStageTheatre(){
