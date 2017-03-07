@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Seats extends JButton
+public class Seat extends JButton
 {
   private double price;
   private boolean available;
