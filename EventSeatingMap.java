@@ -176,6 +176,8 @@ public class EventSeatingMap{
 		isAirline = true;
 		JFrame planeLayout = new JFrame();
 		JPanel panel = new JPanel();
+		JPanel front = new JPanel();
+		JLabel fr = new JLabel("Front", SwingConstants.CENTER);//used to show where the front is
 		Seat[][] seats = new Seat[6][12];//creates a 2d array of uninitialized seat buttons
 		planeLayout.setTitle("Airplane " + title);
       		planeLayout.setVisible(true);
@@ -220,11 +222,14 @@ public class EventSeatingMap{
 				seats[i][j].setBorderPainted(false);
 				panel.add(seats[i][j]);
 				}				
+			}
+			airSeats = seats;
+			planeLayout.add(panel);
+      			planeLayout.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		}
-		airSeats = seats;
-		planeLayout.add(panel);
-      	planeLayout.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		}
+		fr.setFont(new Font("Times New Roman", 1, 12));
+		front.add(fr);
+		planeLayout.add(front, BorderLayout.WEST);
 	}		
 	
 	/* When a seat is clicked and selected.*/
